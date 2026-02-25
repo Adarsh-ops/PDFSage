@@ -21,7 +21,7 @@ export default function Navigation() {
             </svg>
           </div>
           <span className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors tracking-tight">
-            Chatty
+            PDFSage
           </span>
           <span className="hidden sm:inline text-xs text-zinc-600 font-normal">RAG chatbot</span>
         </Link>
