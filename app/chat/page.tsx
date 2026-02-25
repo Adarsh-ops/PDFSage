@@ -1,5 +1,5 @@
 'use client'
-import { Loader } from "@/components/ai-elements/loader"
+import Loader from "@/components/loader"
 import React, { useEffect, useRef, useState } from "react"
 import { useChat } from '@ai-sdk/react'
 
