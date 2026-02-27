@@ -100,6 +100,7 @@ export default function PDFUpload() {
                         disabled={isLoading}
                         onChange={handleFileChange}
                         title="Upload a PDF file"
+                        max='10mb'
                     />
 
                     {isLoading ? (
