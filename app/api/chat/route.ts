@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { groq } from '@ai-sdk/groq'
 import z from "zod";
 import { searchDocs } from "@/lib/search";
+import {auth} from "@clerk/nextjs/server";
 
 const tools = {
     searchKnowledgeBase: tool({
@@ -11,8 +12,10 @@ const tools = {
             query: z.string().describe('The query to search knowledge base with')
         }),
         execute: async ({ query }) => {
+            const { userId } = await auth() 
+            if (!userId) return 'Unauthorized' 
             try {
-                const results = await searchDocs(query, 0.5, 3)
+                const results = await searchDocs(query, userId, 0.5, 3)
 
                 if (results.length == 0) {
                     return 'No relevant info found in knowledge base.'
